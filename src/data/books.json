@@ -1,0 +1,2582 @@
+[
+  {
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Neuromancer",
+    "author": "William Gibson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Foundation",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Left Hand of Darkness",
+    "author": "Ursula K. Le Guin",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Enders Game",
+    "author": "Orson Scott Card",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Snow Crash",
+    "author": "Neal Stephenson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Hitchhikers Guide to the Galaxy",
+    "author": "Douglas Adams",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Martian",
+    "author": "Andy Weir",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Hyperion",
+    "author": "Dan Simmons",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Forever War",
+    "author": "Joe Haldeman",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Ringworld",
+    "author": "Larry Niven",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Contact",
+    "author": "Carl Sagan",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Stars My Destination",
+    "author": "Alfred Bester",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Childhood End",
+    "author": "Arthur C. Clarke",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "2001 A Space Odyssey",
+    "author": "Arthur C. Clarke",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Rendezvous with Rama",
+    "author": "Arthur C. Clarke",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Dispossessed",
+    "author": "Ursula K. Le Guin",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Solaris",
+    "author": "Stanislaw Lem",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Do Androids Dream of Electric Sheep",
+    "author": "Philip K. Dick",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Man in the High Castle",
+    "author": "Philip K. Dick",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Ubik",
+    "author": "Philip K. Dick",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "A Scanner Darkly",
+    "author": "Philip K. Dick",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Three-Body Problem",
+    "author": "Liu Cixin",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Dark Forest",
+    "author": "Liu Cixin",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Deaths End",
+    "author": "Liu Cixin",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Blindsight",
+    "author": "Peter Watts",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Altered Carbon",
+    "author": "Richard K. Morgan",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Old Mans War",
+    "author": "John Scalzi",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Expanse Leviathan Wakes",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Calibans War",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Abaddons Gate",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Cibola Burn",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Nemesis Games",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Babylons Ashes",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Persepolis Rising",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Tiamats Wrath",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Leviathan Falls",
+    "author": "James S.A. Corey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Red Mars",
+    "author": "Kim Stanley Robinson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Green Mars",
+    "author": "Kim Stanley Robinson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Blue Mars",
+    "author": "Kim Stanley Robinson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Ministry for the Future",
+    "author": "Kim Stanley Robinson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Annihilation",
+    "author": "Jeff VanderMeer",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Authority",
+    "author": "Jeff VanderMeer",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Acceptance",
+    "author": "Jeff VanderMeer",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Seveneves",
+    "author": "Neal Stephenson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Diamond Age",
+    "author": "Neal Stephenson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Cryptonomicon",
+    "author": "Neal Stephenson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Anathem",
+    "author": "Neal Stephenson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Speaker for the Dead",
+    "author": "Orson Scott Card",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Xenocide",
+    "author": "Orson Scott Card",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Children of Time",
+    "author": "Adrian Tchaikovsky",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Children of Ruin",
+    "author": "Adrian Tchaikovsky",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Children of Memory",
+    "author": "Adrian Tchaikovsky",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Shards of Earth",
+    "author": "Adrian Tchaikovsky",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Eyes of the Void",
+    "author": "Adrian Tchaikovsky",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Lords of Uncreation",
+    "author": "Adrian Tchaikovsky",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Starship Troopers",
+    "author": "Robert A. Heinlein",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Moon Is a Harsh Mistress",
+    "author": "Robert A. Heinlein",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Stranger in a Strange Land",
+    "author": "Robert A. Heinlein",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Caves of Steel",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Naked Sun",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Foundation and Empire",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Second Foundation",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Foundations Edge",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Foundation and Earth",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "I Robot",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The End of Eternity",
+    "author": "Isaac Asimov",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Piranesi",
+    "author": "Susanna Clarke",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Long Way to a Small Angry Planet",
+    "author": "Becky Chambers",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "A Closed and Common Orbit",
+    "author": "Becky Chambers",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Record of a Spaceborn Few",
+    "author": "Becky Chambers",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Galaxy and the Ground Within",
+    "author": "Becky Chambers",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Station Eleven",
+    "author": "Emily St. John Mandel",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Sea of Tranquility",
+    "author": "Emily St. John Mandel",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Glass Hotel",
+    "author": "Emily St. John Mandel",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Dark Matter",
+    "author": "Blake Crouch",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Recursion",
+    "author": "Blake Crouch",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Upgrade",
+    "author": "Blake Crouch",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "All Systems Red",
+    "author": "Martha Wells",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Artificial Condition",
+    "author": "Martha Wells",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Rogue Protocol",
+    "author": "Martha Wells",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Exit Strategy",
+    "author": "Martha Wells",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Network Effect",
+    "author": "Martha Wells",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Fugitive Telemetry",
+    "author": "Martha Wells",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "System Collapse",
+    "author": "Martha Wells",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Klara and the Sun",
+    "author": "Kazuo Ishiguro",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Never Let Me Go",
+    "author": "Kazuo Ishiguro",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Road",
+    "author": "Cormac McCarthy",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Parable of the Sower",
+    "author": "Octavia Butler",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Kindred",
+    "author": "Octavia Butler",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Dawn",
+    "author": "Octavia Butler",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Lilith Brood",
+    "author": "Octavia Butler",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Hunger Games",
+    "author": "Suzanne Collins",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Catching Fire",
+    "author": "Suzanne Collins",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Mockingjay",
+    "author": "Suzanne Collins",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Divergent",
+    "author": "Veronica Roth",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Ready Player One",
+    "author": "Ernest Cline",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Giver",
+    "author": "Lois Lowry",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "A Wrinkle in Time",
+    "author": "Madeleine LEngle",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Wool",
+    "author": "Hugh Howey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Shift",
+    "author": "Hugh Howey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Dust",
+    "author": "Hugh Howey",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Artemis",
+    "author": "Andy Weir",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Peripheral",
+    "author": "William Gibson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Agency",
+    "author": "William Gibson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Pattern Recognition",
+    "author": "William Gibson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Spook Country",
+    "author": "William Gibson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Zero History",
+    "author": "William Gibson",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "All the Light We Cannot See",
+    "author": "Anthony Doerr",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Cloud Atlas",
+    "author": "David Mitchell",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Bone Clocks",
+    "author": "David Mitchell",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Utopia Avenue",
+    "author": "David Mitchell",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Slade House",
+    "author": "David Mitchell",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Thousand Autumns of Jacob de Zoet",
+    "author": "David Mitchell",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Exhalation",
+    "author": "Ted Chiang",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Stories of Your Life and Others",
+    "author": "Ted Chiang",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Power",
+    "author": "Naomi Alderman",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Oryx and Crake",
+    "author": "Margaret Atwood",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Year of the Flood",
+    "author": "Margaret Atwood",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "MaddAddam",
+    "author": "Margaret Atwood",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Handmaids Tale",
+    "author": "Margaret Atwood",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Testaments",
+    "author": "Margaret Atwood",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Vorkosigan Saga Shards of Honor",
+    "author": "Lois McMaster Bujold",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Barrayar",
+    "author": "Lois McMaster Bujold",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Warriors Apprentice",
+    "author": "Lois McMaster Bujold",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Memory",
+    "author": "Lois McMaster Bujold",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "A Civil Campaign",
+    "author": "Lois McMaster Bujold",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Ancillary Justice",
+    "author": "Ann Leckie",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Ancillary Sword",
+    "author": "Ann Leckie",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Ancillary Mercy",
+    "author": "Ann Leckie",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Translation State",
+    "author": "Ann Leckie",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The City and the City",
+    "author": "China Mieville",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Perdido Street Station",
+    "author": "China Mieville",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Embassytown",
+    "author": "China Mieville",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Babel-17",
+    "author": "Samuel R. Delany",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Nova",
+    "author": "Samuel R. Delany",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Dhalgren",
+    "author": "Samuel R. Delany",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Consider Phlebas",
+    "author": "Iain M. Banks",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Player of Games",
+    "author": "Iain M. Banks",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Use of Weapons",
+    "author": "Iain M. Banks",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Excession",
+    "author": "Iain M. Banks",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Look to Windward",
+    "author": "Iain M. Banks",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Surface Detail",
+    "author": "Iain M. Banks",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Hydrogen Sonata",
+    "author": "Iain M. Banks",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "Matter",
+    "author": "Iain M. Banks",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Name of the Wind",
+    "author": "Patrick Rothfuss",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Wise Mans Fear",
+    "author": "Patrick Rothfuss",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Way of Kings",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Words of Radiance",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Oathbringer",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Rhythm of War",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Mistborn The Final Empire",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Well of Ascension",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Hero of Ages",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Alloy of Law",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Shadows of Self",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Bands of Mourning",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Elantris",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Warbreaker",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Emperor Soul",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Tress of the Emerald Sea",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Yumi and the Nightmare Painter",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Sunlit Man",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Wind and Truth",
+    "author": "Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Game of Thrones",
+    "author": "George R.R. Martin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Clash of Kings",
+    "author": "George R.R. Martin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Storm of Swords",
+    "author": "George R.R. Martin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Feast for Crows",
+    "author": "George R.R. Martin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Dance with Dragons",
+    "author": "George R.R. Martin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Fire and Blood",
+    "author": "George R.R. Martin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Fellowship of the Ring",
+    "author": "J.R.R. Tolkien",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Two Towers",
+    "author": "J.R.R. Tolkien",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Return of the King",
+    "author": "J.R.R. Tolkien",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Silmarillion",
+    "author": "J.R.R. Tolkien",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Children of Hurin",
+    "author": "J.R.R. Tolkien",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Harry Potter and the Sorcerers Stone",
+    "author": "J.K. Rowling",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Harry Potter and the Chamber of Secrets",
+    "author": "J.K. Rowling",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "author": "J.K. Rowling",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Harry Potter and the Goblet of Fire",
+    "author": "J.K. Rowling",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Harry Potter and the Order of the Phoenix",
+    "author": "J.K. Rowling",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Harry Potter and the Half-Blood Prince",
+    "author": "J.K. Rowling",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows",
+    "author": "J.K. Rowling",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Lies of Locke Lamora",
+    "author": "Scott Lynch",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Red Seas Under Red Skies",
+    "author": "Scott Lynch",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Republic of Thieves",
+    "author": "Scott Lynch",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Blade Itself",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Before They Are Hanged",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Last Argument of Kings",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Best Served Cold",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Heroes",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Red Country",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Little Hatred",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Trouble with Peace",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Wisdom of Crowds",
+    "author": "Joe Abercrombie",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Eye of the World",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Great Hunt",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Dragon Reborn",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Shadow Rising",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Fires of Heaven",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Lord of Chaos",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Crown of Swords",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Path of Daggers",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Winters Heart",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Crossroads of Twilight",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Knife of Dreams",
+    "author": "Robert Jordan",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Gathering Storm",
+    "author": "Robert Jordan/Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Towers of Midnight",
+    "author": "Robert Jordan/Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Memory of Light",
+    "author": "Robert Jordan/Brandon Sanderson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "American Gods",
+    "author": "Neil Gaiman",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Neverwhere",
+    "author": "Neil Gaiman",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Stardust",
+    "author": "Neil Gaiman",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Coraline",
+    "author": "Neil Gaiman",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Ocean at the End of the Lane",
+    "author": "Neil Gaiman",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Anansi Boys",
+    "author": "Neil Gaiman",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Good Omens",
+    "author": "Terry Pratchett and Neil Gaiman",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Colour of Magic",
+    "author": "Terry Pratchett",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Mort",
+    "author": "Terry Pratchett",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Guards Guards",
+    "author": "Terry Pratchett",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Small Gods",
+    "author": "Terry Pratchett",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Going Postal",
+    "author": "Terry Pratchett",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Night Watch",
+    "author": "Terry Pratchett",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Hogfather",
+    "author": "Terry Pratchett",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Thud",
+    "author": "Terry Pratchett",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Fifth Season",
+    "author": "N.K. Jemisin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Obelisk Gate",
+    "author": "N.K. Jemisin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Stone Sky",
+    "author": "N.K. Jemisin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The City We Became",
+    "author": "N.K. Jemisin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The World We Make",
+    "author": "N.K. Jemisin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Killing Moon",
+    "author": "N.K. Jemisin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Wizard of Earthsea",
+    "author": "Ursula K. Le Guin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Tombs of Atuan",
+    "author": "Ursula K. Le Guin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Farthest Shore",
+    "author": "Ursula K. Le Guin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Tehanu",
+    "author": "Ursula K. Le Guin",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Priory of the Orange Tree",
+    "author": "Samantha Shannon",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Day of Fallen Night",
+    "author": "Samantha Shannon",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Jonathan Strange and Mr Norrell",
+    "author": "Susanna Clarke",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Poppy War",
+    "author": "R.F. Kuang",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Dragon Republic",
+    "author": "R.F. Kuang",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Burning God",
+    "author": "R.F. Kuang",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Babel",
+    "author": "R.F. Kuang",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Yellowface",
+    "author": "R.F. Kuang",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Bear and the Nightingale",
+    "author": "Katherine Arden",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Girl in the Tower",
+    "author": "Katherine Arden",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Winter of the Witch",
+    "author": "Katherine Arden",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Circe",
+    "author": "Madeline Miller",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Song of Achilles",
+    "author": "Madeline Miller",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Assassins Apprentice",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Royal Assassin",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Assassins Quest",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Ship of Magic",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Mad Ship",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Ship of Destiny",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Fools Errand",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Golden Fool",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Fools Fate",
+    "author": "Robin Hobb",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Gardens of the Moon",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Deadhouse Gates",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Memories of Ice",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "House of Chains",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Midnight Tides",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Bonehunters",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Reapers Gale",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Toll the Hounds",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Dust of Dreams",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Crippled God",
+    "author": "Steven Erikson",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Black Prism",
+    "author": "Brent Weeks",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Blinding Knife",
+    "author": "Brent Weeks",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Broken Eye",
+    "author": "Brent Weeks",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Blood Mirror",
+    "author": "Brent Weeks",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Burning White",
+    "author": "Brent Weeks",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Grace of Kings",
+    "author": "Ken Liu",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Wall of Storms",
+    "author": "Ken Liu",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Spinning Silver",
+    "author": "Naomi Novik",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Uprooted",
+    "author": "Naomi Novik",
+    "genre": "fantasy"
+  },
+  {
+    "title": "A Deadly Education",
+    "author": "Naomi Novik",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Last Graduate",
+    "author": "Naomi Novik",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Golden Enclaves",
+    "author": "Naomi Novik",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Goblin Emperor",
+    "author": "Katherine Addison",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Legends and Lattes",
+    "author": "Travis Baldree",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Bookshops and Bonedust",
+    "author": "Travis Baldree",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The House in the Cerulean Sea",
+    "author": "TJ Klune",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Under the Whispering Door",
+    "author": "TJ Klune",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Ninth House",
+    "author": "Leigh Bardugo",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Hell Bent",
+    "author": "Leigh Bardugo",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Six of Crows",
+    "author": "Leigh Bardugo",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Crooked Kingdom",
+    "author": "Leigh Bardugo",
+    "genre": "fantasy"
+  },
+  {
+    "title": "Shadow and Bone",
+    "author": "Leigh Bardugo",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Girl with the Dragon Tattoo",
+    "author": "Stieg Larsson",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Girl Who Played with Fire",
+    "author": "Stieg Larsson",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Girl Who Kicked the Hornets Nest",
+    "author": "Stieg Larsson",
+    "genre": "thriller"
+  },
+  {
+    "title": "Gone Girl",
+    "author": "Gillian Flynn",
+    "genre": "thriller"
+  },
+  {
+    "title": "Sharp Objects",
+    "author": "Gillian Flynn",
+    "genre": "thriller"
+  },
+  {
+    "title": "Dark Places",
+    "author": "Gillian Flynn",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Silent Patient",
+    "author": "Alex Michaelides",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Maidens",
+    "author": "Alex Michaelides",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Da Vinci Code",
+    "author": "Dan Brown",
+    "genre": "thriller"
+  },
+  {
+    "title": "Angels and Demons",
+    "author": "Dan Brown",
+    "genre": "thriller"
+  },
+  {
+    "title": "Inferno",
+    "author": "Dan Brown",
+    "genre": "thriller"
+  },
+  {
+    "title": "Origin",
+    "author": "Dan Brown",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Girl on the Train",
+    "author": "Paula Hawkins",
+    "genre": "thriller"
+  },
+  {
+    "title": "Into the Water",
+    "author": "Paula Hawkins",
+    "genre": "thriller"
+  },
+  {
+    "title": "Big Little Lies",
+    "author": "Liane Moriarty",
+    "genre": "thriller"
+  },
+  {
+    "title": "Nine Perfect Strangers",
+    "author": "Liane Moriarty",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Husband Secret",
+    "author": "Liane Moriarty",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Woman in the Window",
+    "author": "A.J. Finn",
+    "genre": "thriller"
+  },
+  {
+    "title": "Behind Closed Doors",
+    "author": "B.A. Paris",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Breakdown",
+    "author": "B.A. Paris",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Couple Next Door",
+    "author": "Shari Lapena",
+    "genre": "thriller"
+  },
+  {
+    "title": "An Unwanted Guest",
+    "author": "Shari Lapena",
+    "genre": "thriller"
+  },
+  {
+    "title": "You",
+    "author": "Caroline Kepnes",
+    "genre": "thriller"
+  },
+  {
+    "title": "Hidden Bodies",
+    "author": "Caroline Kepnes",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Maid",
+    "author": "Nita Prose",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Mystery Guest",
+    "author": "Nita Prose",
+    "genre": "thriller"
+  },
+  {
+    "title": "Mexican Gothic",
+    "author": "Silvia Moreno-Garcia",
+    "genre": "thriller"
+  },
+  {
+    "title": "The 7 1/2 Deaths of Evelyn Hardcastle",
+    "author": "Stuart Turton",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Devil and the Dark Water",
+    "author": "Stuart Turton",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Sanatorium",
+    "author": "Sarah Pearse",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Retreat",
+    "author": "Sarah Pearse",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Whisper Man",
+    "author": "Alex North",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Shadows",
+    "author": "Alex North",
+    "genre": "thriller"
+  },
+  {
+    "title": "Verity",
+    "author": "Colleen Hoover",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Last Thing He Told Me",
+    "author": "Laura Dave",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Paris Apartment",
+    "author": "Lucy Foley",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Guest List",
+    "author": "Lucy Foley",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Hunting Party",
+    "author": "Lucy Foley",
+    "genre": "thriller"
+  },
+  {
+    "title": "Rock Paper Scissors",
+    "author": "Alice Feeney",
+    "genre": "thriller"
+  },
+  {
+    "title": "Sometimes I Lie",
+    "author": "Alice Feeney",
+    "genre": "thriller"
+  },
+  {
+    "title": "In the Woods",
+    "author": "Tana French",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Likeness",
+    "author": "Tana French",
+    "genre": "thriller"
+  },
+  {
+    "title": "Faithful Place",
+    "author": "Tana French",
+    "genre": "thriller"
+  },
+  {
+    "title": "Broken Harbor",
+    "author": "Tana French",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Secret Place",
+    "author": "Tana French",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Trespasser",
+    "author": "Tana French",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Searcher",
+    "author": "Tana French",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Hunter",
+    "author": "Tana French",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Thursday Murder Club",
+    "author": "Richard Osman",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Man Who Died Twice",
+    "author": "Richard Osman",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Bullet That Missed",
+    "author": "Richard Osman",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Last Devil to Die",
+    "author": "Richard Osman",
+    "genre": "thriller"
+  },
+  {
+    "title": "Pines",
+    "author": "Blake Crouch",
+    "genre": "thriller"
+  },
+  {
+    "title": "Wayward",
+    "author": "Blake Crouch",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Last Town",
+    "author": "Blake Crouch",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Chain",
+    "author": "Adrian McKinty",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Island",
+    "author": "Adrian McKinty",
+    "genre": "thriller"
+  },
+  {
+    "title": "No Exit",
+    "author": "Taylor Adams",
+    "genre": "thriller"
+  },
+  {
+    "title": "Razorblade Tears",
+    "author": "S.A. Cosby",
+    "genre": "thriller"
+  },
+  {
+    "title": "Blacktop Wasteland",
+    "author": "S.A. Cosby",
+    "genre": "thriller"
+  },
+  {
+    "title": "All the Sinners Bleed",
+    "author": "S.A. Cosby",
+    "genre": "thriller"
+  },
+  {
+    "title": "The It Girl",
+    "author": "Ruth Ware",
+    "genre": "thriller"
+  },
+  {
+    "title": "One by One",
+    "author": "Ruth Ware",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Turn of the Key",
+    "author": "Ruth Ware",
+    "genre": "thriller"
+  },
+  {
+    "title": "In a Dark Dark Wood",
+    "author": "Ruth Ware",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Woman in Cabin 10",
+    "author": "Ruth Ware",
+    "genre": "thriller"
+  },
+  {
+    "title": "Shutter Island",
+    "author": "Dennis Lehane",
+    "genre": "thriller"
+  },
+  {
+    "title": "Mystic River",
+    "author": "Dennis Lehane",
+    "genre": "thriller"
+  },
+  {
+    "title": "Gone Baby Gone",
+    "author": "Dennis Lehane",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Night Circus",
+    "author": "Erin Morgenstern",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Starless Sea",
+    "author": "Erin Morgenstern",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Secret History",
+    "author": "Donna Tartt",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Goldfinch",
+    "author": "Donna Tartt",
+    "genre": "thriller"
+  },
+  {
+    "title": "Daisy Jones and the Six",
+    "author": "Taylor Jenkins Reid",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Seven Husbands of Evelyn Hugo",
+    "author": "Taylor Jenkins Reid",
+    "genre": "thriller"
+  },
+  {
+    "title": "Malibu Rising",
+    "author": "Taylor Jenkins Reid",
+    "genre": "thriller"
+  },
+  {
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "genre": "other"
+  },
+  {
+    "title": "Homo Deus",
+    "author": "Yuval Noah Harari",
+    "genre": "other"
+  },
+  {
+    "title": "21 Lessons for the 21st Century",
+    "author": "Yuval Noah Harari",
+    "genre": "other"
+  },
+  {
+    "title": "Thinking Fast and Slow",
+    "author": "Daniel Kahneman",
+    "genre": "other"
+  },
+  {
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "genre": "other"
+  },
+  {
+    "title": "Deep Work",
+    "author": "Cal Newport",
+    "genre": "other"
+  },
+  {
+    "title": "Digital Minimalism",
+    "author": "Cal Newport",
+    "genre": "other"
+  },
+  {
+    "title": "So Good They Cant Ignore You",
+    "author": "Cal Newport",
+    "genre": "other"
+  },
+  {
+    "title": "The Pragmatic Programmer",
+    "author": "David Thomas and Andrew Hunt",
+    "genre": "other"
+  },
+  {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "genre": "other"
+  },
+  {
+    "title": "Design Patterns",
+    "author": "Gang of Four",
+    "genre": "other"
+  },
+  {
+    "title": "Refactoring",
+    "author": "Martin Fowler",
+    "genre": "other"
+  },
+  {
+    "title": "The Mythical Man-Month",
+    "author": "Frederick Brooks",
+    "genre": "other"
+  },
+  {
+    "title": "Structure and Interpretation of Computer Programs",
+    "author": "Harold Abelson",
+    "genre": "other"
+  },
+  {
+    "title": "Code Complete",
+    "author": "Steve McConnell",
+    "genre": "other"
+  },
+  {
+    "title": "Programming Pearls",
+    "author": "Jon Bentley",
+    "genre": "other"
+  },
+  {
+    "title": "The Art of Computer Programming Vol 1",
+    "author": "Donald Knuth",
+    "genre": "other"
+  },
+  {
+    "title": "Introduction to Algorithms",
+    "author": "Thomas Cormen",
+    "genre": "other"
+  },
+  {
+    "title": "Godel Escher Bach",
+    "author": "Douglas Hofstadter",
+    "genre": "other"
+  },
+  {
+    "title": "The Selfish Gene",
+    "author": "Richard Dawkins",
+    "genre": "other"
+  },
+  {
+    "title": "A Brief History of Time",
+    "author": "Stephen Hawking",
+    "genre": "other"
+  },
+  {
+    "title": "Cosmos",
+    "author": "Carl Sagan",
+    "genre": "other"
+  },
+  {
+    "title": "The Elegant Universe",
+    "author": "Brian Greene",
+    "genre": "other"
+  },
+  {
+    "title": "Surely Youre Joking Mr Feynman",
+    "author": "Richard Feynman",
+    "genre": "other"
+  },
+  {
+    "title": "The Structure of Scientific Revolutions",
+    "author": "Thomas Kuhn",
+    "genre": "other"
+  },
+  {
+    "title": "Meditations",
+    "author": "Marcus Aurelius",
+    "genre": "other"
+  },
+  {
+    "title": "The Art of War",
+    "author": "Sun Tzu",
+    "genre": "other"
+  },
+  {
+    "title": "Man Search for Meaning",
+    "author": "Viktor Frankl",
+    "genre": "other"
+  },
+  {
+    "title": "Educated",
+    "author": "Tara Westover",
+    "genre": "other"
+  },
+  {
+    "title": "Born a Crime",
+    "author": "Trevor Noah",
+    "genre": "other"
+  },
+  {
+    "title": "When Breath Becomes Air",
+    "author": "Paul Kalanithi",
+    "genre": "other"
+  },
+  {
+    "title": "The Immortal Life of Henrietta Lacks",
+    "author": "Rebecca Skloot",
+    "genre": "other"
+  },
+  {
+    "title": "Bad Blood",
+    "author": "John Carreyrou",
+    "genre": "other"
+  },
+  {
+    "title": "Shoe Dog",
+    "author": "Phil Knight",
+    "genre": "other"
+  },
+  {
+    "title": "Steve Jobs",
+    "author": "Walter Isaacson",
+    "genre": "other"
+  },
+  {
+    "title": "Einstein",
+    "author": "Walter Isaacson",
+    "genre": "other"
+  },
+  {
+    "title": "Benjamin Franklin",
+    "author": "Walter Isaacson",
+    "genre": "other"
+  },
+  {
+    "title": "Leonardo da Vinci",
+    "author": "Walter Isaacson",
+    "genre": "other"
+  },
+  {
+    "title": "The Innovators",
+    "author": "Walter Isaacson",
+    "genre": "other"
+  },
+  {
+    "title": "Elon Musk",
+    "author": "Walter Isaacson",
+    "genre": "other"
+  },
+  {
+    "title": "Outliers",
+    "author": "Malcolm Gladwell",
+    "genre": "other"
+  },
+  {
+    "title": "The Tipping Point",
+    "author": "Malcolm Gladwell",
+    "genre": "other"
+  },
+  {
+    "title": "Blink",
+    "author": "Malcolm Gladwell",
+    "genre": "other"
+  },
+  {
+    "title": "David and Goliath",
+    "author": "Malcolm Gladwell",
+    "genre": "other"
+  },
+  {
+    "title": "Freakonomics",
+    "author": "Steven Levitt and Stephen Dubner",
+    "genre": "other"
+  },
+  {
+    "title": "The Black Swan",
+    "author": "Nassim Nicholas Taleb",
+    "genre": "other"
+  },
+  {
+    "title": "Antifragile",
+    "author": "Nassim Nicholas Taleb",
+    "genre": "other"
+  },
+  {
+    "title": "Fooled by Randomness",
+    "author": "Nassim Nicholas Taleb",
+    "genre": "other"
+  },
+  {
+    "title": "Guns Germs and Steel",
+    "author": "Jared Diamond",
+    "genre": "other"
+  },
+  {
+    "title": "Collapse",
+    "author": "Jared Diamond",
+    "genre": "other"
+  },
+  {
+    "title": "The Power of Habit",
+    "author": "Charles Duhigg",
+    "genre": "other"
+  },
+  {
+    "title": "Smarter Faster Better",
+    "author": "Charles Duhigg",
+    "genre": "other"
+  },
+  {
+    "title": "Range",
+    "author": "David Epstein",
+    "genre": "other"
+  },
+  {
+    "title": "The Sports Gene",
+    "author": "David Epstein",
+    "genre": "other"
+  },
+  {
+    "title": "Moneyball",
+    "author": "Michael Lewis",
+    "genre": "other"
+  },
+  {
+    "title": "The Big Short",
+    "author": "Michael Lewis",
+    "genre": "other"
+  },
+  {
+    "title": "Flash Boys",
+    "author": "Michael Lewis",
+    "genre": "other"
+  },
+  {
+    "title": "Liar Poker",
+    "author": "Michael Lewis",
+    "genre": "other"
+  },
+  {
+    "title": "The Undoing Project",
+    "author": "Michael Lewis",
+    "genre": "other"
+  },
+  {
+    "title": "Quiet",
+    "author": "Susan Cain",
+    "genre": "other"
+  },
+  {
+    "title": "Mindset",
+    "author": "Carol Dweck",
+    "genre": "other"
+  },
+  {
+    "title": "Grit",
+    "author": "Angela Duckworth",
+    "genre": "other"
+  },
+  {
+    "title": "Drive",
+    "author": "Daniel Pink",
+    "genre": "other"
+  },
+  {
+    "title": "Start with Why",
+    "author": "Simon Sinek",
+    "genre": "other"
+  },
+  {
+    "title": "Leaders Eat Last",
+    "author": "Simon Sinek",
+    "genre": "other"
+  },
+  {
+    "title": "Zero to One",
+    "author": "Peter Thiel",
+    "genre": "other"
+  },
+  {
+    "title": "The Lean Startup",
+    "author": "Eric Ries",
+    "genre": "other"
+  },
+  {
+    "title": "The Hard Thing About Hard Things",
+    "author": "Ben Horowitz",
+    "genre": "other"
+  },
+  {
+    "title": "Creativity Inc",
+    "author": "Ed Catmull",
+    "genre": "other"
+  },
+  {
+    "title": "Principles",
+    "author": "Ray Dalio",
+    "genre": "other"
+  },
+  {
+    "title": "Good to Great",
+    "author": "Jim Collins",
+    "genre": "other"
+  },
+  {
+    "title": "Daring Greatly",
+    "author": "Brene Brown",
+    "genre": "other"
+  },
+  {
+    "title": "The Gifts of Imperfection",
+    "author": "Brene Brown",
+    "genre": "other"
+  },
+  {
+    "title": "Maybe You Should Talk to Someone",
+    "author": "Lori Gottlieb",
+    "genre": "other"
+  },
+  {
+    "title": "The Body Keeps the Score",
+    "author": "Bessel van der Kolk",
+    "genre": "other"
+  },
+  {
+    "title": "Why We Sleep",
+    "author": "Matthew Walker",
+    "genre": "other"
+  },
+  {
+    "title": "Breath",
+    "author": "James Nestor",
+    "genre": "other"
+  },
+  {
+    "title": "Lifespan",
+    "author": "David Sinclair",
+    "genre": "other"
+  },
+  {
+    "title": "Being Mortal",
+    "author": "Atul Gawande",
+    "genre": "other"
+  },
+  {
+    "title": "The Checklist Manifesto",
+    "author": "Atul Gawande",
+    "genre": "other"
+  },
+  {
+    "title": "Kitchen Confidential",
+    "author": "Anthony Bourdain",
+    "genre": "other"
+  },
+  {
+    "title": "Salt Fat Acid Heat",
+    "author": "Samin Nosrat",
+    "genre": "other"
+  },
+  {
+    "title": "The Food Lab",
+    "author": "J. Kenji Lopez-Alt",
+    "genre": "other"
+  },
+  {
+    "title": "On Writing",
+    "author": "Stephen King",
+    "genre": "other"
+  },
+  {
+    "title": "Bird by Bird",
+    "author": "Anne Lamott",
+    "genre": "other"
+  },
+  {
+    "title": "The Elements of Style",
+    "author": "Strunk and White",
+    "genre": "other"
+  },
+  {
+    "title": "A Gentleman in Moscow",
+    "author": "Amor Towles",
+    "genre": "other"
+  },
+  {
+    "title": "The Lincoln Highway",
+    "author": "Amor Towles",
+    "genre": "other"
+  },
+  {
+    "title": "Rules of Civility",
+    "author": "Amor Towles",
+    "genre": "other"
+  },
+  {
+    "title": "Normal People",
+    "author": "Sally Rooney",
+    "genre": "other"
+  },
+  {
+    "title": "Beautiful World Where Are You",
+    "author": "Sally Rooney",
+    "genre": "other"
+  },
+  {
+    "title": "Conversations with Friends",
+    "author": "Sally Rooney",
+    "genre": "other"
+  },
+  {
+    "title": "Pachinko",
+    "author": "Min Jin Lee",
+    "genre": "other"
+  },
+  {
+    "title": "Free Food for Millionaires",
+    "author": "Min Jin Lee",
+    "genre": "other"
+  },
+  {
+    "title": "Anxious People",
+    "author": "Fredrik Backman",
+    "genre": "other"
+  },
+  {
+    "title": "A Man Called Ove",
+    "author": "Fredrik Backman",
+    "genre": "other"
+  },
+  {
+    "title": "Beartown",
+    "author": "Fredrik Backman",
+    "genre": "other"
+  },
+  {
+    "title": "Us Against You",
+    "author": "Fredrik Backman",
+    "genre": "other"
+  },
+  {
+    "title": "The Winners",
+    "author": "Fredrik Backman",
+    "genre": "other"
+  },
+  {
+    "title": "Where the Crawdads Sing",
+    "author": "Delia Owens",
+    "genre": "other"
+  },
+  {
+    "title": "Lessons in Chemistry",
+    "author": "Bonnie Garmus",
+    "genre": "other"
+  },
+  {
+    "title": "Tomorrow and Tomorrow and Tomorrow",
+    "author": "Gabrielle Zevin",
+    "genre": "other"
+  },
+  {
+    "title": "The Midnight Library",
+    "author": "Matt Haig",
+    "genre": "other"
+  },
+  {
+    "title": "Beach Read",
+    "author": "Emily Henry",
+    "genre": "other"
+  },
+  {
+    "title": "People We Meet on Vacation",
+    "author": "Emily Henry",
+    "genre": "other"
+  },
+  {
+    "title": "Book Lovers",
+    "author": "Emily Henry",
+    "genre": "other"
+  },
+  {
+    "title": "Happy Place",
+    "author": "Emily Henry",
+    "genre": "other"
+  },
+  {
+    "title": "Funny Story",
+    "author": "Emily Henry",
+    "genre": "other"
+  },
+  {
+    "title": "The Remains of the Day",
+    "author": "Kazuo Ishiguro",
+    "genre": "other"
+  },
+  {
+    "title": "An Artist of the Floating World",
+    "author": "Kazuo Ishiguro",
+    "genre": "other"
+  },
+  {
+    "title": "Bewilderment",
+    "author": "Richard Powers",
+    "genre": "other"
+  },
+  {
+    "title": "The Overstory",
+    "author": "Richard Powers",
+    "genre": "other"
+  },
+  {
+    "title": "Demon Copperhead",
+    "author": "Barbara Kingsolver",
+    "genre": "other"
+  },
+  {
+    "title": "The Poisonwood Bible",
+    "author": "Barbara Kingsolver",
+    "genre": "other"
+  },
+  {
+    "title": "Small Things Like These",
+    "author": "Claire Keegan",
+    "genre": "other"
+  },
+  {
+    "title": "Foster",
+    "author": "Claire Keegan",
+    "genre": "other"
+  },
+  {
+    "title": "Hamnet",
+    "author": "Maggie OFarrell",
+    "genre": "other"
+  },
+  {
+    "title": "The Marriage Portrait",
+    "author": "Maggie OFarrell",
+    "genre": "other"
+  },
+  {
+    "title": "Intermezzo",
+    "author": "Sally Rooney",
+    "genre": "other"
+  },
+  {
+    "title": "Shuggie Bain",
+    "author": "Douglas Stuart",
+    "genre": "other"
+  },
+  {
+    "title": "Young Mungo",
+    "author": "Douglas Stuart",
+    "genre": "other"
+  },
+  {
+    "title": "The Seven Moons of Maali Almeida",
+    "author": "Shehan Karunatilaka",
+    "genre": "other"
+  },
+  {
+    "title": "Prophet Song",
+    "author": "Paul Lynch",
+    "genre": "other"
+  },
+  {
+    "title": "Trust",
+    "author": "Hernan Diaz",
+    "genre": "other"
+  },
+  {
+    "title": "James",
+    "author": "Percival Everett",
+    "genre": "other"
+  },
+  {
+    "title": "Orbital",
+    "author": "Samantha Harvey",
+    "genre": "other"
+  },
+  {
+    "title": "We Solve Murders",
+    "author": "Richard Osman",
+    "genre": "thriller"
+  },
+  {
+    "title": "Holly",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Institute",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Later",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Billy Summers",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Fairy Tale",
+    "author": "Stephen King",
+    "genre": "fantasy"
+  },
+  {
+    "title": "It",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Shining",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Pet Sematary",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Misery",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "11/22/63",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Mr Mercedes",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Outsider",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "If It Bleeds",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Revival",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Doctor Sleep",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Under the Dome",
+    "author": "Stephen King",
+    "genre": "sci-fi"
+  },
+  {
+    "title": "The Stand",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Salem Lot",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "Carrie",
+    "author": "Stephen King",
+    "genre": "thriller"
+  },
+  {
+    "title": "The Dark Tower The Gunslinger",
+    "author": "Stephen King",
+    "genre": "fantasy"
+  },
+  {
+    "title": "The Drawing of the Three",
+    "author": "Stephen King",
+    "genre": "fantasy"
+  }
+]
