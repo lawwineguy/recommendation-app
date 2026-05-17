@@ -4,7 +4,7 @@ import booksData from "@/data/books.json";
 
 export async function POST(req: NextRequest) {
   try {
-    const { genre, additionalBooks } = await req.json();
+    const { genre, additionalBooks, count, excludeTitles } = await req.json();
 
     let books = booksData as { title: string; author: string; genre: string }[];
     if (genre && genre !== "surprise") {
@@ -15,20 +15,36 @@ export async function POST(req: NextRequest) {
       title: string;
       author: string;
       genre: string;
+      rating?: number;
     }[];
     const allBooks = [...books, ...extra];
+
+    const ratedBooks = extra.filter((b) => b.rating);
+    let ratingContext = "";
+    if (ratedBooks.length > 0) {
+      const ratedList = ratedBooks
+        .map((b) => `"${b.title}" by ${b.author} — ${b.rating}/5 stars`)
+        .join("\n");
+      ratingContext = `\n\nHere are my ratings for some books:\n${ratedList}\n\nWeight recommendations toward books similar to my 4-5 star rated books. Avoid recommending things similar to my 1-2 star books.`;
+    }
 
     const bookList = allBooks
       .map((b) => `"${b.title}" by ${b.author} (${b.genre})`)
       .join("\n");
 
     const genreLabel = genre === "surprise" ? "any genre" : genre;
+    const numRecs = count || 3;
+
+    const excludeList = excludeTitles as string[] | undefined;
+    const excludeClause = excludeList?.length
+      ? `\n\nDo NOT recommend any of these titles: ${excludeList.map((t) => `"${t}"`).join(", ")}`
+      : "";
 
     const prompt = `Based on these books I own and enjoy:
 
-${bookList}
+${bookList}${ratingContext}
 
-Recommend exactly 3 books I DON'T already own that I would love${genre !== "surprise" ? ` in the ${genreLabel} genre` : ""}.
+Recommend exactly ${numRecs} books I DON'T already own that I would love${genre !== "surprise" ? ` in the ${genreLabel} genre` : ""}.${excludeClause}
 
 For each, respond in this exact JSON format:
 [

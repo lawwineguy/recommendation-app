@@ -11,6 +11,13 @@ type Recommendation = {
   whereToBuy: string;
 };
 
+type LocalBook = {
+  title: string;
+  author: string;
+  genre: string;
+  rating?: number;
+};
+
 const genres = [
   { value: "sci-fi", label: "Sci-Fi", emoji: "🚀" },
   { value: "fantasy", label: "Fantasy", emoji: "🐉" },
@@ -18,7 +25,7 @@ const genres = [
   { value: "surprise", label: "Surprise Me", emoji: "🎲" },
 ];
 
-function getLocalBooks() {
+function getLocalBooks(): LocalBook[] {
   if (typeof window === "undefined") return [];
   try {
     return JSON.parse(localStorage.getItem("myBooks") || "[]");
@@ -27,11 +34,35 @@ function getLocalBooks() {
   }
 }
 
+function saveLocalBooks(books: LocalBook[]) {
+  localStorage.setItem("myBooks", JSON.stringify(books));
+}
+
 export default function BookRecommend() {
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<Recommendation[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [ratingTarget, setRatingTarget] = useState<number | null>(null);
+  const [pendingRating, setPendingRating] = useState<number>(0);
+  const [replacingIndex, setReplacingIndex] = useState<number | null>(null);
+
+  const fetchRecommendations = async (genre: string, count: number, excludeTitles: string[] = []) => {
+    const localBooks = getLocalBooks();
+    const res = await fetch("/api/books/recommend", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        genre,
+        additionalBooks: localBooks,
+        count,
+        excludeTitles,
+      }),
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    return data.recommendations as Recommendation[];
+  };
 
   const handleGenreSelect = async (genre: string) => {
     setSelectedGenre(genre);
@@ -40,18 +71,53 @@ export default function BookRecommend() {
     setResults(null);
 
     try {
-      const res = await fetch("/api/books/recommend", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ genre, additionalBooks: getLocalBooks() }),
-      });
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      setResults(data.recommendations);
+      const recs = await fetchRecommendations(genre, 3);
+      setResults(recs);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleAlreadyRead = (index: number) => {
+    setRatingTarget(index);
+    setPendingRating(0);
+  };
+
+  const handleRatingSubmit = async () => {
+    if (ratingTarget === null || !results || !selectedGenre) return;
+
+    const rec = results[ratingTarget];
+    const localBooks = getLocalBooks();
+
+    const newBook: LocalBook = {
+      title: rec.title,
+      author: rec.author,
+      genre: selectedGenre === "surprise" ? "other" : selectedGenre,
+      ...(pendingRating > 0 ? { rating: pendingRating } : {}),
+    };
+    const updated = [...localBooks, newBook];
+    saveLocalBooks(updated);
+
+    setRatingTarget(null);
+    setReplacingIndex(ratingTarget);
+
+    try {
+      const allTitles = [
+        ...results.map((r) => r.title),
+        ...updated.map((b) => b.title),
+      ];
+      const replacements = await fetchRecommendations(selectedGenre, 1, allTitles);
+      if (replacements.length > 0) {
+        setResults((prev) =>
+          prev ? prev.map((r, i) => (i === ratingTarget ? replacements[0] : r)) : prev
+        );
+      }
+    } catch {
+      setResults((prev) => prev ? prev.filter((_, i) => i !== ratingTarget) : prev);
+    } finally {
+      setReplacingIndex(null);
     }
   };
 
@@ -102,24 +168,76 @@ export default function BookRecommend() {
             </h2>
             {results.map((rec, i) => (
               <div
-                key={i}
+                key={`${rec.title}-${i}`}
                 className="rounded-2xl border border-stone-800 bg-stone-900 p-5 shadow-md"
               >
-                <div className="mb-1 text-xs font-medium uppercase tracking-wider text-amber-500">
-                  Pick #{i + 1}
-                </div>
-                <h3 className="text-lg font-semibold text-amber-50">
-                  {rec.title}
-                </h3>
-                <p className="text-sm text-stone-400">by {rec.author}</p>
-                <p className="mt-3 text-sm leading-relaxed text-stone-300">
-                  {rec.reason}
-                </p>
-                <div className="mt-3 rounded-lg bg-stone-800 px-3 py-2 text-xs text-stone-400">
-                  📍 {rec.whereToBuy}
-                </div>
+                {replacingIndex === i ? (
+                  <div className="flex items-center justify-center py-4">
+                    <Spinner text="Finding a replacement..." />
+                  </div>
+                ) : (
+                  <>
+                    <div className="mb-1 text-xs font-medium uppercase tracking-wider text-amber-500">
+                      Pick #{i + 1}
+                    </div>
+                    <h3 className="text-lg font-semibold text-amber-50">
+                      {rec.title}
+                    </h3>
+                    <p className="text-sm text-stone-400">by {rec.author}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-stone-300">
+                      {rec.reason}
+                    </p>
+                    <div className="mt-3 rounded-lg bg-stone-800 px-3 py-2 text-xs text-stone-400">
+                      📍 {rec.whereToBuy}
+                    </div>
+                    <button
+                      onClick={() => handleAlreadyRead(i)}
+                      className="mt-3 w-full rounded-xl border border-stone-700 px-3 py-2 text-sm text-stone-400 transition-colors hover:border-amber-600 hover:text-amber-50"
+                    >
+                      ✓ Already Read It
+                    </button>
+                  </>
+                )}
               </div>
             ))}
+          </div>
+        )}
+
+        {ratingTarget !== null && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
+            <div className="w-full max-w-sm rounded-2xl bg-stone-900 p-6 shadow-2xl">
+              <h3 className="mb-1 text-lg font-semibold text-amber-50">
+                Rate this book
+              </h3>
+              <p className="mb-4 text-sm text-stone-400">
+                {results?.[ratingTarget]?.title}
+              </p>
+              <div className="mb-6 flex justify-center gap-3">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button
+                    key={star}
+                    onClick={() => setPendingRating(star)}
+                    className="text-3xl transition-transform active:scale-90"
+                  >
+                    {star <= pendingRating ? "★" : "☆"}
+                  </button>
+                ))}
+              </div>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setRatingTarget(null)}
+                  className="flex-1 rounded-xl border border-stone-700 py-3 text-sm text-stone-400"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleRatingSubmit}
+                  className="flex-1 rounded-xl bg-gradient-to-r from-amber-600 to-orange-700 py-3 text-sm font-semibold text-white"
+                >
+                  Save & Replace
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>

@@ -82,16 +82,30 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="mt-6 flex justify-center">
-          <Link
-            href="/books/add"
-            className="flex items-center gap-2 rounded-full border border-stone-700 px-5 py-2.5 text-sm text-stone-400 transition-colors hover:border-amber-600 hover:text-amber-50"
-          >
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
+        <div className="mt-8">
+          <h2 className="mb-3 text-center text-sm font-medium text-stone-400">
             My Library
-          </Link>
+          </h2>
+          <div className="flex justify-center gap-3">
+            <Link
+              href="/books/add"
+              className="flex items-center gap-2 rounded-full border border-stone-700 px-5 py-2.5 text-sm text-stone-400 transition-colors hover:border-amber-600 hover:text-amber-50"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              Add Book
+            </Link>
+            <Link
+              href="/movies/add"
+              className="flex items-center gap-2 rounded-full border border-stone-700 px-5 py-2.5 text-sm text-stone-400 transition-colors hover:border-violet-500 hover:text-violet-300"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              Add Movie/Show
+            </Link>
+          </div>
         </div>
       </div>
     </main>

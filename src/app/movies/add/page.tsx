@@ -3,59 +3,62 @@
 import { useState, useEffect } from "react";
 import BackButton from "@/components/BackButton";
 
-type LocalBook = {
+type WatchHistoryItem = {
   title: string;
-  author: string;
+  type: string;
   genre: string;
   rating?: number;
 };
 
 const genres = [
+  { value: "action-thriller", label: "Action / Thriller" },
   { value: "sci-fi", label: "Sci-Fi" },
-  { value: "fantasy", label: "Fantasy" },
-  { value: "thriller", label: "Thriller" },
+  { value: "comedy", label: "Comedy" },
+  { value: "drama", label: "Drama" },
+  { value: "horror", label: "Horror" },
+  { value: "documentary", label: "Documentary" },
   { value: "other", label: "Other" },
 ];
 
-function getLocalBooks(): LocalBook[] {
+function getWatchHistory(): WatchHistoryItem[] {
   try {
-    return JSON.parse(localStorage.getItem("myBooks") || "[]");
+    return JSON.parse(localStorage.getItem("myWatchHistory") || "[]");
   } catch {
     return [];
   }
 }
 
-function saveLocalBooks(books: LocalBook[]) {
-  localStorage.setItem("myBooks", JSON.stringify(books));
+function saveWatchHistory(items: WatchHistoryItem[]) {
+  localStorage.setItem("myWatchHistory", JSON.stringify(items));
 }
 
-export default function AddBook() {
+export default function AddMovie() {
   const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  const [type, setType] = useState<"movie" | "tv">("movie");
   const [genre, setGenre] = useState("other");
   const [rating, setRating] = useState<number | null>(null);
   const [saved, setSaved] = useState(false);
-  const [myBooks, setMyBooks] = useState<LocalBook[]>([]);
+  const [history, setHistory] = useState<WatchHistoryItem[]>([]);
 
   useEffect(() => {
-    setMyBooks(getLocalBooks());
+    setHistory(getWatchHistory());
   }, []);
 
   const handleSave = () => {
     if (!title.trim()) return;
 
-    const book: LocalBook = {
+    const item: WatchHistoryItem = {
       title: title.trim(),
-      author: author.trim(),
+      type,
       genre,
       ...(rating ? { rating } : {}),
     };
 
-    const updated = [...myBooks, book];
-    saveLocalBooks(updated);
-    setMyBooks(updated);
+    const updated = [...history, item];
+    saveWatchHistory(updated);
+    setHistory(updated);
     setTitle("");
-    setAuthor("");
+    setType("movie");
     setGenre("other");
     setRating(null);
     setSaved(true);
@@ -67,10 +70,12 @@ export default function AddBook() {
       <div className="mx-auto max-w-md">
         <BackButton />
 
-        <h1 className="mb-2 text-2xl font-bold text-amber-50">Add a Book</h1>
+        <h1 className="mb-2 text-2xl font-bold text-amber-50">
+          Add to Watch History
+        </h1>
         <p className="mb-6 text-sm text-stone-400">
-          Add books to your personal library. These will be included when
-          generating recommendations.
+          Log movies and shows you&apos;ve watched. These improve your
+          recommendations.
         </p>
 
         <div className="space-y-4">
@@ -82,22 +87,37 @@ export default function AddBook() {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Enter book title"
-              className="w-full rounded-xl border border-stone-700 bg-stone-900 px-4 py-3 text-amber-50 placeholder-stone-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+              placeholder="Enter title"
+              className="w-full rounded-xl border border-stone-700 bg-stone-900 px-4 py-3 text-amber-50 placeholder-stone-500 focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500"
             />
           </div>
 
           <div>
-            <label className="mb-1 block text-sm font-medium text-stone-300">
-              Author
+            <label className="mb-2 block text-sm font-medium text-stone-300">
+              Type
             </label>
-            <input
-              type="text"
-              value={author}
-              onChange={(e) => setAuthor(e.target.value)}
-              placeholder="Enter author name"
-              className="w-full rounded-xl border border-stone-700 bg-stone-900 px-4 py-3 text-amber-50 placeholder-stone-500 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
-            />
+            <div className="flex gap-3">
+              <button
+                onClick={() => setType("movie")}
+                className={`flex-1 rounded-xl border-2 px-4 py-3 text-sm font-medium transition-all ${
+                  type === "movie"
+                    ? "border-violet-500 bg-violet-500/10 text-violet-300"
+                    : "border-stone-700 bg-stone-900 text-stone-400"
+                }`}
+              >
+                🎬 Movie
+              </button>
+              <button
+                onClick={() => setType("tv")}
+                className={`flex-1 rounded-xl border-2 px-4 py-3 text-sm font-medium transition-all ${
+                  type === "tv"
+                    ? "border-violet-500 bg-violet-500/10 text-violet-300"
+                    : "border-stone-700 bg-stone-900 text-stone-400"
+                }`}
+              >
+                📺 TV Show
+              </button>
+            </div>
           </div>
 
           <div>
@@ -107,7 +127,7 @@ export default function AddBook() {
             <select
               value={genre}
               onChange={(e) => setGenre(e.target.value)}
-              className="w-full rounded-xl border border-stone-700 bg-stone-900 px-4 py-3 text-amber-50 focus:border-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-500"
+              className="w-full rounded-xl border border-stone-700 bg-stone-900 px-4 py-3 text-amber-50 focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500"
             >
               {genres.map((g) => (
                 <option key={g.value} value={g.value}>
@@ -137,50 +157,44 @@ export default function AddBook() {
           <button
             onClick={handleSave}
             disabled={!title.trim()}
-            className="w-full rounded-2xl bg-gradient-to-r from-amber-600 to-orange-700 px-6 py-4 text-base font-semibold text-white shadow-lg transition-transform active:scale-95 disabled:opacity-50"
+            className="w-full rounded-2xl bg-gradient-to-r from-violet-600 to-purple-700 px-6 py-4 text-base font-semibold text-white shadow-lg transition-transform active:scale-95 disabled:opacity-50"
           >
-            Save Book
+            Save to Watch History
           </button>
 
           {saved && (
             <div className="rounded-xl bg-emerald-900/30 p-3 text-center text-sm text-emerald-300">
-              Book saved!
+              Saved!
             </div>
           )}
         </div>
 
-        {myBooks.length > 0 && (
+        {history.length > 0 && (
           <div className="mt-8">
             <h2 className="mb-3 text-sm font-medium text-stone-300">
-              Your Added Books ({myBooks.length})
+              Watch History ({history.length})
             </h2>
             <div className="space-y-2">
-              {myBooks
+              {history
                 .slice()
                 .reverse()
-                .map((book, i) => (
+                .map((item, i) => (
                   <div
                     key={i}
                     className="flex items-center justify-between rounded-xl bg-stone-900 px-4 py-3"
                   >
                     <div>
                       <p className="text-sm font-medium text-amber-50">
-                        {book.title}
+                        {item.title}
                       </p>
-                      {book.author && (
-                        <p className="text-xs text-stone-400">{book.author}</p>
-                      )}
+                      <p className="text-xs text-stone-400">
+                        {item.type === "tv" ? "TV Show" : "Movie"} · {item.genre}
+                        {item.rating ? ` · ${"★".repeat(item.rating)}${"☆".repeat(5 - item.rating)}` : ""}
+                      </p>
                     </div>
-                    <div className="flex shrink-0 items-center gap-2">
-                      {book.rating && (
-                        <span className="text-xs text-amber-500">
-                          {"★".repeat(book.rating)}{"☆".repeat(5 - book.rating)}
-                        </span>
-                      )}
-                      <span className="rounded-full bg-stone-800 px-2 py-0.5 text-xs text-stone-400">
-                        {book.genre}
-                      </span>
-                    </div>
+                    <span className="text-lg">
+                      {item.type === "tv" ? "📺" : "🎬"}
+                    </span>
                   </div>
                 ))}
             </div>
