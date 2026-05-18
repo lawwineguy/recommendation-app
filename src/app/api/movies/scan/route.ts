@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getVisionModel } from "@/lib/gemini";
+import { getVisionModel, generateWithRetry } from "@/lib/gemini";
 
 export async function POST(req: NextRequest) {
   try {
@@ -43,8 +43,7 @@ Respond in this exact JSON format:
 Return ONLY the JSON, no other text.`;
 
     const model = getVisionModel();
-    const result = await model.generateContent([prompt, ...imageParts]);
-    const text = result.response.text();
+    const text = await generateWithRetry(model, [prompt, ...imageParts]);
 
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {

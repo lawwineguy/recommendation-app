@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getModel } from "@/lib/gemini";
+import { getModel, generateWithRetry } from "@/lib/gemini";
 
 const SERVICE_BADGES: Record<string, string> = {
   netflix: "🔴 Netflix",
@@ -60,8 +60,7 @@ Respond in this exact JSON format:
 Return ONLY the JSON array, no other text.`;
 
     const model = getModel();
-    const result = await model.generateContent(prompt);
-    const text = result.response.text();
+    const text = await generateWithRetry(model, prompt);
 
     const jsonMatch = text.match(/\[[\s\S]*\]/);
     if (!jsonMatch) {

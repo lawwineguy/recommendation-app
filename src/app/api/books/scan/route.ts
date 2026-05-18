@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getVisionModel } from "@/lib/gemini";
+import { getVisionModel, generateWithRetry } from "@/lib/gemini";
 import booksData from "@/data/books.json";
 
 export async function POST(req: NextRequest) {
@@ -74,8 +74,7 @@ Mark "alreadyOwned": true for any book I likely already own based on my library.
 Return ONLY the JSON, no other text.`;
 
     const model = getVisionModel();
-    const result = await model.generateContent([prompt, ...imageParts]);
-    const text = result.response.text();
+    const text = await generateWithRetry(model, [prompt, ...imageParts]);
 
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {

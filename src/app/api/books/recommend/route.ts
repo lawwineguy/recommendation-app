@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getModel } from "@/lib/gemini";
+import { getModel, generateWithRetry } from "@/lib/gemini";
 import booksData from "@/data/books.json";
 
 export async function POST(req: NextRequest) {
@@ -59,8 +59,7 @@ For each, respond in this exact JSON format:
 Return ONLY the JSON array, no other text.`;
 
     const model = getModel();
-    const result = await model.generateContent(prompt);
-    const text = result.response.text();
+    const text = await generateWithRetry(model, prompt);
 
     const jsonMatch = text.match(/\[[\s\S]*\]/);
     if (!jsonMatch) {
