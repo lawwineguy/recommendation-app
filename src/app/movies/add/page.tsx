@@ -2,13 +2,7 @@
 
 import { useState, useEffect } from "react";
 import BackButton from "@/components/BackButton";
-
-type WatchHistoryItem = {
-  title: string;
-  type: string;
-  genre: string;
-  rating?: number;
-};
+import { getMedia, addMedia, migrateFromLocalStorage, type UserMedia } from "@/lib/storage";
 
 const genres = [
   { value: "action-thriller", label: "Action / Thriller" },
@@ -20,43 +14,34 @@ const genres = [
   { value: "other", label: "Other" },
 ];
 
-function getWatchHistory(): WatchHistoryItem[] {
-  try {
-    return JSON.parse(localStorage.getItem("myWatchHistory") || "[]");
-  } catch {
-    return [];
-  }
-}
-
-function saveWatchHistory(items: WatchHistoryItem[]) {
-  localStorage.setItem("myWatchHistory", JSON.stringify(items));
-}
-
 export default function AddMovie() {
   const [title, setTitle] = useState("");
   const [type, setType] = useState<"movie" | "tv">("movie");
   const [genre, setGenre] = useState("other");
   const [rating, setRating] = useState<number | null>(null);
   const [saved, setSaved] = useState(false);
-  const [history, setHistory] = useState<WatchHistoryItem[]>([]);
+  const [history, setHistory] = useState<UserMedia[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setHistory(getWatchHistory());
+    (async () => {
+      await migrateFromLocalStorage();
+      setHistory(await getMedia());
+      setLoading(false);
+    })();
   }, []);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!title.trim()) return;
 
-    const item: WatchHistoryItem = {
+    const item = await addMedia({
       title: title.trim(),
       type,
       genre,
       ...(rating ? { rating } : {}),
-    };
+    });
 
-    const updated = [...history, item];
-    saveWatchHistory(updated);
-    setHistory(updated);
+    setHistory((prev) => [...prev, item]);
     setTitle("");
     setType("movie");
     setGenre("other");
@@ -169,7 +154,7 @@ export default function AddMovie() {
           )}
         </div>
 
-        {history.length > 0 && (
+        {!loading && history.length > 0 && (
           <div className="mt-8">
             <h2 className="mb-3 text-sm font-medium text-stone-300">
               Watch History ({history.length})
@@ -180,7 +165,7 @@ export default function AddMovie() {
                 .reverse()
                 .map((item, i) => (
                   <div
-                    key={i}
+                    key={item.id || i}
                     className="flex items-center justify-between rounded-xl bg-stone-900 px-4 py-3"
                   >
                     <div>

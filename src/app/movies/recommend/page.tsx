@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BackButton from "@/components/BackButton";
 import Spinner from "@/components/Spinner";
+import { getMedia, addMedia, migrateFromLocalStorage, type UserMedia } from "@/lib/storage";
 
 type StreamingService = {
   id: number;
@@ -18,13 +19,6 @@ type Recommendation = {
   genre: string;
 };
 
-type WatchHistoryItem = {
-  title: string;
-  type: string;
-  genre: string;
-  rating?: number;
-};
-
 const moods = [
   { value: "action-thriller", label: "Action / Thriller", emoji: "💥" },
   { value: "sci-fi", label: "Sci-Fi", emoji: "🛸" },
@@ -33,19 +27,6 @@ const moods = [
   { value: "horror", label: "Horror", emoji: "👻" },
   { value: "anything", label: "Anything", emoji: "🎲" },
 ];
-
-function getWatchHistory(): WatchHistoryItem[] {
-  if (typeof window === "undefined") return [];
-  try {
-    return JSON.parse(localStorage.getItem("myWatchHistory") || "[]");
-  } catch {
-    return [];
-  }
-}
-
-function saveWatchHistory(items: WatchHistoryItem[]) {
-  localStorage.setItem("myWatchHistory", JSON.stringify(items));
-}
 
 export default function MovieRecommend() {
   const [services, setServices] = useState<StreamingService[]>([]);
@@ -59,8 +40,13 @@ export default function MovieRecommend() {
   const [ratingTarget, setRatingTarget] = useState<number | null>(null);
   const [pendingRating, setPendingRating] = useState<number>(0);
   const [replacingIndex, setReplacingIndex] = useState<number | null>(null);
+  const mediaRef = useRef<UserMedia[]>([]);
 
   useEffect(() => {
+    (async () => {
+      await migrateFromLocalStorage();
+      mediaRef.current = await getMedia();
+    })();
     fetch("/api/movies/services")
       .then((res) => res.json())
       .then(({ services: data }) => {
@@ -71,13 +57,17 @@ export default function MovieRecommend() {
       });
   }, []);
 
+  const refreshMedia = async () => {
+    mediaRef.current = await getMedia();
+  };
+
   const fetchRecommendations = async (
     selectedType: string,
     selectedMood: string,
     count: number,
     excludeTitles: string[] = []
   ) => {
-    const watchHistory = getWatchHistory();
+    const watchHistory = mediaRef.current;
     const res = await fetch("/api/movies/recommend", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -128,16 +118,14 @@ export default function MovieRecommend() {
     if (ratingTarget === null || !results || !type || !mood) return;
 
     const rec = results[ratingTarget];
-    const history = getWatchHistory();
 
-    const newItem: WatchHistoryItem = {
+    await addMedia({
       title: rec.title,
       type,
       genre: rec.genre,
       ...(pendingRating > 0 ? { rating: pendingRating } : {}),
-    };
-    const updated = [...history, newItem];
-    saveWatchHistory(updated);
+    });
+    await refreshMedia();
 
     setRatingTarget(null);
     setReplacingIndex(ratingTarget);
@@ -145,7 +133,7 @@ export default function MovieRecommend() {
     try {
       const allTitles = [
         ...results.map((r) => r.title),
-        ...updated.map((h) => h.title),
+        ...mediaRef.current.map((h) => h.title),
       ];
       const replacements = await fetchRecommendations(type, mood, 1, allTitles);
       if (replacements.length > 0) {

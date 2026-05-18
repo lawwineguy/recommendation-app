@@ -1,21 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import BackButton from "@/components/BackButton";
 import Spinner from "@/components/Spinner";
+import { getBooks, addBook, migrateFromLocalStorage, type UserBook } from "@/lib/storage";
 
 type Recommendation = {
   title: string;
   author: string;
   reason: string;
   whereToBuy: string;
-};
-
-type LocalBook = {
-  title: string;
-  author: string;
-  genre: string;
-  rating?: number;
 };
 
 const genres = [
@@ -25,19 +19,6 @@ const genres = [
   { value: "surprise", label: "Surprise Me", emoji: "🎲" },
 ];
 
-function getLocalBooks(): LocalBook[] {
-  if (typeof window === "undefined") return [];
-  try {
-    return JSON.parse(localStorage.getItem("myBooks") || "[]");
-  } catch {
-    return [];
-  }
-}
-
-function saveLocalBooks(books: LocalBook[]) {
-  localStorage.setItem("myBooks", JSON.stringify(books));
-}
-
 export default function BookRecommend() {
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -46,9 +27,21 @@ export default function BookRecommend() {
   const [ratingTarget, setRatingTarget] = useState<number | null>(null);
   const [pendingRating, setPendingRating] = useState<number>(0);
   const [replacingIndex, setReplacingIndex] = useState<number | null>(null);
+  const booksRef = useRef<UserBook[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      await migrateFromLocalStorage();
+      booksRef.current = await getBooks();
+    })();
+  }, []);
+
+  const refreshBooks = async () => {
+    booksRef.current = await getBooks();
+  };
 
   const fetchRecommendations = async (genre: string, count: number, excludeTitles: string[] = []) => {
-    const localBooks = getLocalBooks();
+    const localBooks = booksRef.current;
     const res = await fetch("/api/books/recommend", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -97,16 +90,14 @@ export default function BookRecommend() {
     if (ratingTarget === null || !results || !selectedGenre) return;
 
     const rec = results[ratingTarget];
-    const localBooks = getLocalBooks();
 
-    const newBook: LocalBook = {
+    await addBook({
       title: rec.title,
       author: rec.author,
       genre: selectedGenre === "surprise" ? "other" : selectedGenre,
       ...(pendingRating > 0 ? { rating: pendingRating } : {}),
-    };
-    const updated = [...localBooks, newBook];
-    saveLocalBooks(updated);
+    });
+    await refreshBooks();
 
     setRatingTarget(null);
     setReplacingIndex(ratingTarget);
@@ -114,7 +105,7 @@ export default function BookRecommend() {
     try {
       const allTitles = [
         ...results.map((r) => r.title),
-        ...updated.map((b) => b.title),
+        ...booksRef.current.map((b) => b.title),
       ];
       const replacements = await fetchRecommendations(selectedGenre, 1, allTitles);
       if (replacements.length > 0) {

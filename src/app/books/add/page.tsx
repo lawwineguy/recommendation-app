@@ -2,13 +2,7 @@
 
 import { useState, useEffect } from "react";
 import BackButton from "@/components/BackButton";
-
-type LocalBook = {
-  title: string;
-  author: string;
-  genre: string;
-  rating?: number;
-};
+import { getBooks, addBook, migrateFromLocalStorage, type UserBook } from "@/lib/storage";
 
 const genres = [
   { value: "sci-fi", label: "Sci-Fi" },
@@ -17,43 +11,34 @@ const genres = [
   { value: "other", label: "Other" },
 ];
 
-function getLocalBooks(): LocalBook[] {
-  try {
-    return JSON.parse(localStorage.getItem("myBooks") || "[]");
-  } catch {
-    return [];
-  }
-}
-
-function saveLocalBooks(books: LocalBook[]) {
-  localStorage.setItem("myBooks", JSON.stringify(books));
-}
-
 export default function AddBook() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [genre, setGenre] = useState("other");
   const [rating, setRating] = useState<number | null>(null);
   const [saved, setSaved] = useState(false);
-  const [myBooks, setMyBooks] = useState<LocalBook[]>([]);
+  const [myBooks, setMyBooks] = useState<UserBook[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setMyBooks(getLocalBooks());
+    (async () => {
+      await migrateFromLocalStorage();
+      setMyBooks(await getBooks());
+      setLoading(false);
+    })();
   }, []);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!title.trim()) return;
 
-    const book: LocalBook = {
+    const book = await addBook({
       title: title.trim(),
       author: author.trim(),
       genre,
       ...(rating ? { rating } : {}),
-    };
+    });
 
-    const updated = [...myBooks, book];
-    saveLocalBooks(updated);
-    setMyBooks(updated);
+    setMyBooks((prev) => [...prev, book]);
     setTitle("");
     setAuthor("");
     setGenre("other");
@@ -149,7 +134,7 @@ export default function AddBook() {
           )}
         </div>
 
-        {myBooks.length > 0 && (
+        {!loading && myBooks.length > 0 && (
           <div className="mt-8">
             <h2 className="mb-3 text-sm font-medium text-stone-300">
               Your Added Books ({myBooks.length})
@@ -160,7 +145,7 @@ export default function AddBook() {
                 .reverse()
                 .map((book, i) => (
                   <div
-                    key={i}
+                    key={book.id || i}
                     className="flex items-center justify-between rounded-xl bg-stone-900 px-4 py-3"
                   >
                     <div>
