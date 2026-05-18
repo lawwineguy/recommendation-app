@@ -92,7 +92,15 @@ export default function MovieRecommend() {
     });
     const data = await res.json();
     if (data.error) throw new Error(data.error);
-    return data.recommendations as Recommendation[];
+    const recs = data.recommendations as Recommendation[];
+    const watchedSet = new Set(watchHistory.map((h) => h.title.toLowerCase()));
+    const seen = new Set<string>();
+    return recs.filter((r) => {
+      const key = r.title.toLowerCase();
+      if (watchedSet.has(key) || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   };
 
   const handleGetRecs = async (selectedMood: string) => {

@@ -35,16 +35,20 @@ export async function POST(req: NextRequest) {
     const genreLabel = genre === "surprise" ? "any genre" : genre;
     const numRecs = count || 3;
 
-    const excludeList = excludeTitles as string[] | undefined;
-    const excludeClause = excludeList?.length
-      ? `\n\nDo NOT recommend any of these titles: ${excludeList.map((t) => `"${t}"`).join(", ")}`
+    const ownedTitles = allBooks.map((b) => b.title);
+    const explicitExcludes = (excludeTitles || []) as string[];
+    const allExcluded = [...new Set([...ownedTitles, ...explicitExcludes])];
+
+    const excludeClause = allExcluded.length
+      ? `\n\nDo NOT recommend any of these titles (I already own them): ${allExcluded.map((t) => `"${t}"`).join(", ")}`
       : "";
 
     const prompt = `Based on these books I own and enjoy:
 
 ${bookList}${ratingContext}
 
-Recommend exactly ${numRecs} books I DON'T already own that I would love${genre !== "surprise" ? ` in the ${genreLabel} genre` : ""}.${excludeClause}
+Recommend exactly ${numRecs} books I DON'T already own that I would love${genre !== "surprise" ? ` in the ${genreLabel} genre` : ""}.
+Do not recommend the same title more than once. Each recommendation must be unique.${excludeClause}
 
 For each, respond in this exact JSON format:
 [

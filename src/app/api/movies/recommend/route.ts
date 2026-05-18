@@ -24,17 +24,23 @@ export async function POST(req: NextRequest) {
       rating?: number;
     }[];
 
+    const watchedTitles = historyItems.map((h) => h.title);
+    const explicitExcludes = (excludeTitles || []) as string[];
+    const allExcluded = [...new Set([...watchedTitles, ...explicitExcludes])];
+
     let historyContext = "";
     if (historyItems.length > 0) {
-      const historyList = historyItems
-        .map((h) => `"${h.title}" (${h.type}, ${h.genre})${h.rating ? ` — ${h.rating}/5 stars` : ""}`)
-        .join("\n");
-      historyContext = `\n\nHere's what I've watched before:\n${historyList}\n\nWeight recommendations toward titles similar to my 4-5 star rated ones. Avoid recommending things similar to my 1-2 star rated ones. Do NOT recommend anything I've already watched.`;
+      const ratedItems = historyItems.filter((h) => h.rating);
+      if (ratedItems.length > 0) {
+        const ratedList = ratedItems
+          .map((h) => `"${h.title}" (${h.type}, ${h.genre}) — ${h.rating}/5 stars`)
+          .join("\n");
+        historyContext = `\n\nHere are my ratings for things I've watched:\n${ratedList}\n\nWeight recommendations toward titles similar to my 4-5 star rated ones. Avoid recommending things similar to my 1-2 star rated ones.`;
+      }
     }
 
-    const excludeList = excludeTitles as string[] | undefined;
-    const excludeClause = excludeList?.length
-      ? `\n\nDo NOT recommend any of these titles: ${excludeList.map((t) => `"${t}"`).join(", ")}`
+    const excludeClause = allExcluded.length
+      ? `\n\nDo NOT recommend any of these titles I've already watched: ${allExcluded.map((t) => `"${t}"`).join(", ")}`
       : "";
 
     const prompt = `I want to watch a ${type === "tv" ? "TV show" : "movie"}. My mood: ${mood}.
@@ -46,6 +52,7 @@ CRITICAL INSTRUCTIONS:
 - Do NOT recommend titles that require additional purchase or rental${historyContext}${excludeClause}
 
 Recommend exactly ${numRecs} ${type === "tv" ? "TV shows" : "movies"} I should watch.
+Do not recommend the same title more than once. Each recommendation must be unique.
 
 Respond in this exact JSON format:
 [
