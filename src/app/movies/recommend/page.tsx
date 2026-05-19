@@ -117,7 +117,8 @@ export default function MovieRecommend() {
   const handleRatingSubmit = async () => {
     if (ratingTarget === null || !results || !type || !mood) return;
 
-    const rec = results[ratingTarget];
+    const targetIndex = ratingTarget;
+    const rec = results[targetIndex];
 
     await addMedia({
       title: rec.title,
@@ -128,7 +129,7 @@ export default function MovieRecommend() {
     await refreshMedia();
 
     setRatingTarget(null);
-    setReplacingIndex(ratingTarget);
+    setReplacingIndex(targetIndex);
 
     try {
       const allTitles = [
@@ -138,11 +139,11 @@ export default function MovieRecommend() {
       const replacements = await fetchRecommendations(type, mood, 1, allTitles);
       if (replacements.length > 0) {
         setResults((prev) =>
-          prev ? prev.map((r, i) => (i === ratingTarget ? replacements[0] : r)) : prev
+          prev ? prev.map((r, i) => (i === targetIndex ? replacements[0] : r)) : prev
         );
       }
     } catch {
-      setResults((prev) => prev ? prev.filter((_, i) => i !== ratingTarget) : prev);
+      setResults((prev) => prev ? prev.filter((_, i) => i !== targetIndex) : prev);
     } finally {
       setReplacingIndex(null);
     }
@@ -319,8 +320,14 @@ export default function MovieRecommend() {
         )}
 
         {ratingTarget !== null && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
-            <div className="w-full max-w-sm rounded-2xl bg-stone-900 p-6 shadow-2xl">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
+            onClick={() => setRatingTarget(null)}
+          >
+            <div
+              className="w-full max-w-sm rounded-2xl bg-stone-900 p-6 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
               <h3 className="mb-1 text-lg font-semibold text-amber-50">
                 Rate this title
               </h3>
@@ -332,7 +339,7 @@ export default function MovieRecommend() {
                   <button
                     key={star}
                     onClick={() => setPendingRating(star)}
-                    className="text-3xl transition-transform active:scale-90"
+                    className="text-3xl touch-manipulation transition-transform active:scale-90"
                   >
                     {star <= pendingRating ? "★" : "☆"}
                   </button>
@@ -341,13 +348,13 @@ export default function MovieRecommend() {
               <div className="flex gap-3">
                 <button
                   onClick={() => setRatingTarget(null)}
-                  className="flex-1 rounded-xl border border-stone-700 py-3 text-sm text-stone-400"
+                  className="flex-1 rounded-xl border border-stone-700 py-3 text-sm text-stone-400 touch-manipulation"
                 >
                   Cancel
                 </button>
                 <button
-                  onClick={handleRatingSubmit}
-                  className="flex-1 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 py-3 text-sm font-semibold text-white"
+                  onPointerUp={handleRatingSubmit}
+                  className="flex-1 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 py-3 text-sm font-semibold text-white touch-manipulation"
                 >
                   Save & Replace
                 </button>

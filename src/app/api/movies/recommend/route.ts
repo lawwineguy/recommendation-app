@@ -69,15 +69,24 @@ Return ONLY the JSON array, no other text.`;
     const model = getModel();
     const text = await generateWithRetry(model, prompt);
 
-    const jsonMatch = text.match(/\[[\s\S]*\]/);
-    if (!jsonMatch) {
-      return NextResponse.json(
-        { error: "Failed to parse recommendations" },
-        { status: 500 }
-      );
+    let parsed: unknown[];
+    const arrayMatch = text.match(/\[[\s\S]*\]/);
+    if (arrayMatch) {
+      parsed = JSON.parse(arrayMatch[0]);
+    } else {
+      const objMatch = text.match(/\{[\s\S]*\}/);
+      if (objMatch) {
+        const obj = JSON.parse(objMatch[0]);
+        parsed = obj.recommendations || obj.results || Object.values(obj)[0];
+      } else {
+        return NextResponse.json(
+          { error: "Failed to parse recommendations" },
+          { status: 500 }
+        );
+      }
     }
 
-    const recommendations = JSON.parse(jsonMatch[0]).map(
+    const recommendations = (parsed as { service: string }[]).map(
       (r: { service: string }) => ({
         ...r,
         serviceBadge:
