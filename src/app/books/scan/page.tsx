@@ -17,9 +17,17 @@ type ScanResult = {
 
 export default function BookScan() {
   const [images, setImages] = useState<string[]>([]);
+  const [isVideo, setIsVideo] = useState(false);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<ScanResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  const handleMediaReady = (imgs: string[], video?: boolean) => {
+    setImages(imgs);
+    setIsVideo(!!video);
+    setResults(null);
+    setError(null);
+  };
 
   const handleScan = async () => {
     if (images.length === 0) return;
@@ -31,7 +39,7 @@ export default function BookScan() {
       const res = await fetch("/api/books/scan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ images }),
+        body: JSON.stringify({ images, isVideoScan: isVideo }),
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
@@ -52,10 +60,11 @@ export default function BookScan() {
           Bookstore Scanner
         </h1>
         <p className="mb-6 text-sm text-stone-400">
-          Snap a photo of a bookshelf and get personalized recommendations.
+          Snap a photo or record a video panning across a bookshelf to get
+          personalized recommendations.
         </p>
 
-        <ImageUploader onImagesReady={setImages} />
+        <ImageUploader onImagesReady={handleMediaReady} />
 
         {images.length > 0 && !loading && !results && (
           <button
@@ -66,7 +75,15 @@ export default function BookScan() {
           </button>
         )}
 
-        {loading && <Spinner text="Scanning bookshelf with AI..." />}
+        {loading && (
+          <Spinner
+            text={
+              isVideo
+                ? "Analyzing video frames — this may take a moment..."
+                : "Scanning bookshelf with AI..."
+            }
+          />
+        )}
 
         {error && (
           <div className="mt-4 rounded-xl bg-red-900/30 p-4 text-sm text-red-300">

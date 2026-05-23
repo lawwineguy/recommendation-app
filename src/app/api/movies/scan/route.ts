@@ -3,7 +3,7 @@ import { getVisionModel, generateWithRetry } from "@/lib/gemini";
 
 export async function POST(req: NextRequest) {
   try {
-    const { images } = await req.json();
+    const { images, isVideoScan } = await req.json();
 
     if (!images || images.length === 0) {
       return NextResponse.json(
@@ -12,7 +12,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const imageParts = images.slice(0, 5).map((img: string) => {
+    const maxImages = isVideoScan ? 10 : 5;
+    const imageParts = images.slice(0, maxImages).map((img: string) => {
       const base64 = img.replace(/^data:image\/\w+;base64,/, "");
       const mimeType = img.match(/^data:(image\/\w+);/)?.[1] || "image/jpeg";
       return {
@@ -20,9 +21,17 @@ export async function POST(req: NextRequest) {
       };
     });
 
-    const prompt = `This is a photo of an in-flight entertainment screen.
+    const deduplicationNote = isVideoScan
+      ? `\nIMPORTANT: These images are frames extracted from a video panning across a screen. The same title will appear in multiple frames. You MUST deduplicate — list each unique title only once.`
+      : "";
 
-1. Identify ALL movies and shows visible on the screen.
+    const sourceDescription = isVideoScan
+      ? "These are frames from a video of an in-flight entertainment screen."
+      : "This is a photo of an in-flight entertainment screen.";
+
+    const prompt = `${sourceDescription}
+${deduplicationNote}
+1. Identify ALL unique movies and shows visible across the images.
 2. Based on general popularity and critical acclaim, rank the top 3 movies/shows I should watch on this flight.
 
 Respond in this exact JSON format:
@@ -57,9 +66,10 @@ Return ONLY the JSON, no other text.`;
     return NextResponse.json(parsed);
   } catch (err) {
     console.error("Movie scan error:", err);
-    return NextResponse.json(
-      { error: "Failed to scan movies" },
-      { status: 500 }
-    );
+    const message =
+      err instanceof Error && err.message.includes("too large")
+        ? "Video frames too large to process. Try a shorter video or use photo upload."
+        : "Failed to scan movies";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

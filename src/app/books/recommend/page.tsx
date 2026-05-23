@@ -92,13 +92,19 @@ export default function BookRecommend() {
     const targetIndex = ratingTarget;
     const rec = results[targetIndex];
 
-    await addBook({
-      title: rec.title,
-      author: rec.author,
-      genre: selectedGenre === "surprise" ? "other" : selectedGenre,
-      ...(pendingRating > 0 ? { rating: pendingRating } : {}),
-    });
-    await refreshBooks();
+    try {
+      await addBook({
+        title: rec.title,
+        author: rec.author,
+        genre: selectedGenre === "surprise" ? "other" : selectedGenre,
+        ...(pendingRating > 0 ? { rating: pendingRating } : {}),
+      });
+      await refreshBooks();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to save rating");
+      setRatingTarget(null);
+      return;
+    }
 
     setRatingTarget(null);
     setReplacingIndex(targetIndex);
@@ -237,7 +243,7 @@ export default function BookRecommend() {
                   Cancel
                 </button>
                 <button
-                  onPointerUp={handleRatingSubmit}
+                  onClick={handleRatingSubmit}
                   className="flex-1 rounded-xl bg-gradient-to-r from-amber-600 to-orange-700 py-3 text-sm font-semibold text-white touch-manipulation"
                 >
                   Save & Replace

@@ -120,13 +120,19 @@ export default function MovieRecommend() {
     const targetIndex = ratingTarget;
     const rec = results[targetIndex];
 
-    await addMedia({
-      title: rec.title,
-      type,
-      genre: rec.genre,
-      ...(pendingRating > 0 ? { rating: pendingRating } : {}),
-    });
-    await refreshMedia();
+    try {
+      await addMedia({
+        title: rec.title,
+        type,
+        genre: rec.genre,
+        ...(pendingRating > 0 ? { rating: pendingRating } : {}),
+      });
+      await refreshMedia();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to save rating");
+      setRatingTarget(null);
+      return;
+    }
 
     setRatingTarget(null);
     setReplacingIndex(targetIndex);
@@ -353,7 +359,7 @@ export default function MovieRecommend() {
                   Cancel
                 </button>
                 <button
-                  onPointerUp={handleRatingSubmit}
+                  onClick={handleRatingSubmit}
                   className="flex-1 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 py-3 text-sm font-semibold text-white touch-manipulation"
                 >
                   Save & Replace

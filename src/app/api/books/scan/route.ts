@@ -4,7 +4,7 @@ import booksData from "@/data/books.json";
 
 export async function POST(req: NextRequest) {
   try {
-    const { images, additionalBooks } = await req.json();
+    const { images, additionalBooks, isVideoScan } = await req.json();
 
     if (!images || images.length === 0) {
       return NextResponse.json(
@@ -41,7 +41,8 @@ export async function POST(req: NextRequest) {
 
     const ownedTitles = allBooks.map((b) => b.title.toLowerCase());
 
-    const imageParts = images.slice(0, 5).map((img: string) => {
+    const maxImages = isVideoScan ? 10 : 5;
+    const imageParts = images.slice(0, maxImages).map((img: string) => {
       const base64 = img.replace(/^data:image\/\w+;base64,/, "");
       const mimeType = img.match(/^data:(image\/\w+);/)?.[1] || "image/jpeg";
       return {
@@ -49,9 +50,17 @@ export async function POST(req: NextRequest) {
       };
     });
 
-    const prompt = `These are photos of books on a shelf at a bookstore.
+    const deduplicationNote = isVideoScan
+      ? `\nIMPORTANT: These images are frames extracted from a video panning across a bookshelf. The same book will appear in multiple frames from different angles. You MUST deduplicate — list each unique book only once.`
+      : "";
 
-1. Identify ALL book titles and authors you can see in these images. List every one.
+    const sourceDescription = isVideoScan
+      ? "These are frames from a video panning across books on a shelf."
+      : "These are photos of books on a shelf at a bookstore.";
+
+    const prompt = `${sourceDescription}
+${deduplicationNote}
+1. Identify ALL unique book titles and authors you can see across the images. List every unique one.
 2. My reading profile: I enjoy genres like ${topGenres}. My favorite authors include ${topAuthors}. I own ${allBooks.length} books.
 3. From the books you identified, recommend which ones I should buy and why, based on my reading profile.
 
@@ -98,9 +107,10 @@ Return ONLY the JSON, no other text.`;
     return NextResponse.json(parsed);
   } catch (err) {
     console.error("Book scan error:", err);
-    return NextResponse.json(
-      { error: "Failed to scan books" },
-      { status: 500 }
-    );
+    const message =
+      err instanceof Error && err.message.includes("too large")
+        ? "Video frames too large to process. Try a shorter video or use photo upload."
+        : "Failed to scan books";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
