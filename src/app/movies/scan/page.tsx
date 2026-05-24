@@ -1,18 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import BackButton from "@/components/BackButton";
 import ImageUploader from "@/components/ImageUploader";
 import Spinner from "@/components/Spinner";
+import RatingModal from "@/components/RatingModal";
+import { getMedia, addMedia, migrateFromLocalStorage, type UserMedia } from "@/lib/storage";
+
+type TopPick = {
+  rank: number;
+  title: string;
+  type: string;
+  reason: string;
+};
 
 type ScanResult = {
   allTitles: { title: string; type: string }[];
-  topPicks: {
-    rank: number;
-    title: string;
-    type: string;
-    reason: string;
-  }[];
+  topPicks: TopPick[];
 };
 
 export default function MovieScan() {
@@ -21,6 +25,16 @@ export default function MovieScan() {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<ScanResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [ratingTarget, setRatingTarget] = useState<number | null>(null);
+  const [replacingIndex, setReplacingIndex] = useState<number | null>(null);
+  const mediaRef = useRef<UserMedia[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      await migrateFromLocalStorage();
+      mediaRef.current = await getMedia();
+    })();
+  }, []);
 
   const handleMediaReady = (imgs: string[], video?: boolean) => {
     setImages(imgs);
@@ -52,6 +66,81 @@ export default function MovieScan() {
   };
 
   const rankColors = ["text-amber-400", "text-stone-300", "text-orange-400"];
+
+  const handleRatingSubmit = async (rating: number) => {
+    if (ratingTarget === null || !results) return;
+
+    const pick = results.topPicks[ratingTarget];
+    const targetIndex = ratingTarget;
+    setRatingTarget(null);
+
+    try {
+      await addMedia({
+        title: pick.title,
+        type: pick.type === "tv" ? "tv" : "movie",
+        genre: "other",
+        ...(rating > 0 ? { rating } : {}),
+      });
+      mediaRef.current = await getMedia();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to save title");
+      return;
+    }
+
+    setReplacingIndex(targetIndex);
+
+    try {
+      const allTitles = [
+        ...results.topPicks.map((p) => p.title),
+        ...mediaRef.current.map((m) => m.title),
+      ];
+      const res = await fetch("/api/movies/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: pick.type === "tv" ? "tv" : "movie",
+          mood: "anything",
+          services: ["Netflix", "Hulu", "Disney+", "Apple TV+", "Max", "Amazon Prime Video"],
+          watchHistory: mediaRef.current,
+          count: 1,
+          excludeTitles: allTitles,
+        }),
+      });
+      const data = await res.json();
+      if (data.recommendations?.length > 0) {
+        const newPick: TopPick = {
+          rank: pick.rank,
+          title: data.recommendations[0].title,
+          type: data.recommendations[0].genre || pick.type,
+          reason: data.recommendations[0].pitch,
+        };
+        setResults((prev) =>
+          prev
+            ? {
+                ...prev,
+                topPicks: prev.topPicks.map((p, i) =>
+                  i === targetIndex ? newPick : p
+                ),
+              }
+            : prev
+        );
+      } else {
+        setResults((prev) =>
+          prev
+            ? { ...prev, topPicks: prev.topPicks.filter((_, i) => i !== targetIndex) }
+            : prev
+        );
+      }
+    } catch {
+      setResults((prev) =>
+        prev
+          ? { ...prev, topPicks: prev.topPicks.filter((_, i) => i !== targetIndex) }
+          : prev
+      );
+    } finally {
+      setReplacingIndex(null);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-stone-950 px-4 pb-8 pt-8">
@@ -102,25 +191,39 @@ export default function MovieScan() {
               <div className="space-y-3">
                 {results.topPicks.map((pick, i) => (
                   <div
-                    key={i}
+                    key={`${pick.title}-${i}`}
                     className="rounded-2xl border border-sky-800/50 bg-stone-900 p-5 shadow-md"
                   >
-                    <div className="mb-1 flex items-center gap-2">
-                      <span
-                        className={`text-2xl font-bold ${rankColors[i] || "text-stone-400"}`}
-                      >
-                        #{pick.rank}
-                      </span>
-                      <span className="rounded-full bg-stone-800 px-2 py-0.5 text-xs text-stone-400">
-                        {pick.type}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-amber-50">
-                      {pick.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-stone-300">
-                      {pick.reason}
-                    </p>
+                    {replacingIndex === i ? (
+                      <div className="flex items-center justify-center py-4">
+                        <Spinner text="Finding a replacement..." />
+                      </div>
+                    ) : (
+                      <>
+                        <div className="mb-1 flex items-center gap-2">
+                          <span
+                            className={`text-2xl font-bold ${rankColors[i] || "text-stone-400"}`}
+                          >
+                            #{pick.rank}
+                          </span>
+                          <span className="rounded-full bg-stone-800 px-2 py-0.5 text-xs text-stone-400">
+                            {pick.type}
+                          </span>
+                        </div>
+                        <h3 className="text-lg font-semibold text-amber-50">
+                          {pick.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-relaxed text-stone-300">
+                          {pick.reason}
+                        </p>
+                        <button
+                          onClick={() => setRatingTarget(i)}
+                          className="mt-3 w-full rounded-xl border border-stone-700 px-3 py-2 text-sm text-stone-400 transition-colors hover:border-sky-500 hover:text-sky-300"
+                        >
+                          ✓ Already Seen It
+                        </button>
+                      </>
+                    )}
                   </div>
                 ))}
               </div>
@@ -142,6 +245,17 @@ export default function MovieScan() {
               </div>
             </div>
           </div>
+        )}
+
+        {ratingTarget !== null && (
+          <RatingModal
+            title={results?.topPicks[ratingTarget]?.title || ""}
+            label="Rate this title"
+            accentFrom="from-sky-600"
+            accentTo="to-blue-700"
+            onCancel={() => setRatingTarget(null)}
+            onSubmit={handleRatingSubmit}
+          />
         )}
       </div>
     </main>

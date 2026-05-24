@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import BackButton from "@/components/BackButton";
 import Spinner from "@/components/Spinner";
+import RatingModal from "@/components/RatingModal";
 import { getBooks, addBook, migrateFromLocalStorage, type UserBook } from "@/lib/storage";
 
 type Recommendation = {
@@ -25,7 +26,6 @@ export default function BookRecommend() {
   const [results, setResults] = useState<Recommendation[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [ratingTarget, setRatingTarget] = useState<number | null>(null);
-  const [pendingRating, setPendingRating] = useState<number>(0);
   const [replacingIndex, setReplacingIndex] = useState<number | null>(null);
   const booksRef = useRef<UserBook[]>([]);
 
@@ -81,32 +81,26 @@ export default function BookRecommend() {
     }
   };
 
-  const handleAlreadyRead = (index: number) => {
-    setRatingTarget(index);
-    setPendingRating(0);
-  };
-
-  const handleRatingSubmit = async () => {
+  const handleRatingSubmit = async (rating: number) => {
     if (ratingTarget === null || !results || !selectedGenre) return;
 
     const targetIndex = ratingTarget;
     const rec = results[targetIndex];
+    setRatingTarget(null);
 
     try {
       await addBook({
         title: rec.title,
         author: rec.author,
         genre: selectedGenre === "surprise" ? "other" : selectedGenre,
-        ...(pendingRating > 0 ? { rating: pendingRating } : {}),
+        ...(rating > 0 ? { rating } : {}),
       });
       await refreshBooks();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to save rating");
-      setRatingTarget(null);
       return;
     }
 
-    setRatingTarget(null);
     setReplacingIndex(targetIndex);
 
     try {
@@ -197,7 +191,7 @@ export default function BookRecommend() {
                       📍 {rec.whereToBuy}
                     </div>
                     <button
-                      onClick={() => handleAlreadyRead(i)}
+                      onClick={() => setRatingTarget(i)}
                       className="mt-3 w-full rounded-xl border border-stone-700 px-3 py-2 text-sm text-stone-400 transition-colors hover:border-amber-600 hover:text-amber-50"
                     >
                       ✓ Already Read It
@@ -210,47 +204,12 @@ export default function BookRecommend() {
         )}
 
         {ratingTarget !== null && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4"
-            onClick={() => setRatingTarget(null)}
-          >
-            <div
-              className="w-full max-w-sm rounded-2xl bg-stone-900 p-6 shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <h3 className="mb-1 text-lg font-semibold text-amber-50">
-                Rate this book
-              </h3>
-              <p className="mb-4 text-sm text-stone-400">
-                {results?.[ratingTarget]?.title}
-              </p>
-              <div className="mb-6 flex justify-center gap-3">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <button
-                    key={star}
-                    onClick={() => setPendingRating(star)}
-                    className="text-3xl touch-manipulation transition-transform active:scale-90"
-                  >
-                    {star <= pendingRating ? "★" : "☆"}
-                  </button>
-                ))}
-              </div>
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setRatingTarget(null)}
-                  className="flex-1 rounded-xl border border-stone-700 py-3 text-sm text-stone-400 touch-manipulation"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleRatingSubmit}
-                  className="flex-1 rounded-xl bg-gradient-to-r from-amber-600 to-orange-700 py-3 text-sm font-semibold text-white touch-manipulation"
-                >
-                  Save & Replace
-                </button>
-              </div>
-            </div>
-          </div>
+          <RatingModal
+            title={results?.[ratingTarget]?.title || ""}
+            label="Rate this book"
+            onCancel={() => setRatingTarget(null)}
+            onSubmit={handleRatingSubmit}
+          />
         )}
       </div>
     </main>
